@@ -14,7 +14,7 @@ export const Container = styled.section`
 `;
 
 export const Title = styled.h3`
-  ${tw`text-xl md:text-3xl capitalize font-normal mb-8`}
+  ${tw` md:text-3xl capitalize font-normal mb-8 `}
 `;
 
 export const Button = styled.button`
@@ -27,8 +27,8 @@ export const Button = styled.button`
    items-center
    justify-center
    text-center text-white text-base capitalize
-   bg-pink-400
-   hover:bg-opacity-90
+   bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500
+   hover:from-pink-500 hover:to-indigo-500
    font-normal
    rounded-md`}
 `;

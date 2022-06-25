@@ -12,6 +12,6 @@
     -moz-osx-font-smoothing: grayscale;
   }
   body {
-    @apply m-0 p-0 bg-pink-400 text-lg;
+    @apply m-0 p-0 text-lg bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500;
   }
 }
