@@ -39,8 +39,10 @@ function App() {
   return (
     <Wrapper>
       <Container>
-        <Title>{people.length} birthdays today</Title>
-        <List people={people} />
+        <Title>{Today(people).length} birthday today</Title>
+        <List people={Today(people)} />
+        <Title>{Upcoming(people, 2).length} Upcoming Birthday</Title>
+        <List people={Upcoming(people, 2)} />
         <Button onClick={() => setPeople([])}>clear all</Button>
       </Container>
     </Wrapper>
@@ -48,3 +50,33 @@ function App() {
 }
 
 export default App;
+
+// Due for birthday Today
+
+function Today(person) {
+  let currentDay = new Date().getDate();
+  let currentMonth = new Date().getMonth();
+
+  let filter = person.filter((data) => {
+    let day = new Date(data.birthday).getDate();
+    let month = new Date(data.birthday).getMonth();
+
+    return currentDay == day && currentMonth == month;
+  });
+  return filter;
+}
+
+// upcoming birthdays
+function Upcoming(person, toMonth) {
+  let currentMonth = new Date().getMonth();
+  let currentDay = new Date().getDate();
+
+  let filter = person.filter((data) => {
+    let month = new Date(data.birthday).getMonth();
+    let day = new Date(data.birthday).getDate();
+
+    if (currentDay == day) return;
+    return month >= currentMonth && month <= currentMonth + toMonth;
+  });
+  return filter;
+}
