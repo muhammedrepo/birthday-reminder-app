@@ -2,7 +2,7 @@ export default [
   {
     id: 1,
     name: "Jodan Yates",
-    birthday: "1995-08-28",
+    birthday: "1995-06-26",
 
     image:
       "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1287&q=80",
@@ -10,7 +10,7 @@ export default [
   {
     id: 2,
     name: "Heste Logan",
-    birthday: "1998-06-25",
+    birthday: "1998-06-26",
 
     image:
       "https://images.unsplash.com/photo-1558203728-00f45181dd84?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2074&q=80",
@@ -34,7 +34,7 @@ export default [
   {
     id: 5,
     name: "Nola ardner",
-    birthday: "1991-03-20",
+    birthday: "1991-08-30",
 
     image:
       "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80",

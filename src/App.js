@@ -36,12 +36,50 @@ export const Button = styled.button`
 function App() {
   const [people, setPeople] = useState(data);
 
+  // Due for birthday Today
+
+  const Today = (person) => {
+    let currentDay = new Date().getDate();
+    let currentMonth = new Date().getMonth();
+
+    let filter = person.filter((data) => {
+      let day = new Date(data.birthday).getDate();
+      let month = new Date(data.birthday).getMonth();
+
+      return currentDay === day && currentMonth === month;
+    });
+    return filter;
+  };
+
+  // upcoming birthdays
+  const Upcoming = (person, toMonth) => {
+    let currentMonth = new Date().getMonth();
+    let currentDay = new Date().getDate();
+
+    let filter = person.filter((data) => {
+      let month = new Date(data.birthday).getMonth();
+      let day = new Date(data.birthday).getDate();
+
+      if (currentDay === day) return;
+      return month >= currentMonth && month <= currentMonth + toMonth;
+    });
+    return filter;
+  };
+
   return (
     <Wrapper>
       <Container>
-        <Title>{Today(people).length} birthday today</Title>
+        <Title>
+          {Today(people).length}
+          {Today(people).length === 1 ? " birthday today" : " birthdays today"}
+        </Title>
         <List people={Today(people)} />
-        <Title>{Upcoming(people, 2).length} Upcoming Birthday</Title>
+        <Title>
+          {Upcoming(people, 2).length}{" "}
+          {Upcoming(people, 2).length === 1
+            ? " Upcoming Birthday"
+            : "upcoming birthdays"}
+        </Title>
         <List people={Upcoming(people, 2)} />
         <Button onClick={() => setPeople([])}>clear all</Button>
       </Container>
@@ -51,32 +89,32 @@ function App() {
 
 export default App;
 
-// Due for birthday Today
+// // Due for birthday Today
 
-function Today(person) {
-  let currentDay = new Date().getDate();
-  let currentMonth = new Date().getMonth();
+// function Today(person) {
+//   let currentDay = new Date().getDate();
+//   let currentMonth = new Date().getMonth();
 
-  let filter = person.filter((data) => {
-    let day = new Date(data.birthday).getDate();
-    let month = new Date(data.birthday).getMonth();
+//   let filter = person.filter((data) => {
+//     let day = new Date(data.birthday).getDate();
+//     let month = new Date(data.birthday).getMonth();
 
-    return currentDay == day && currentMonth == month;
-  });
-  return filter;
-}
+//     return currentDay === day && currentMonth === month;
+//   });
+//   return filter;
+// }
 
-// upcoming birthdays
-function Upcoming(person, toMonth) {
-  let currentMonth = new Date().getMonth();
-  let currentDay = new Date().getDate();
+// // upcoming birthdays
+// function Upcoming(person, toMonth) {
+//   let currentMonth = new Date().getMonth();
+//   let currentDay = new Date().getDate();
 
-  let filter = person.filter((data) => {
-    let month = new Date(data.birthday).getMonth();
-    let day = new Date(data.birthday).getDate();
+//   let filter = person.filter((data) => {
+//     let month = new Date(data.birthday).getMonth();
+//     let day = new Date(data.birthday).getDate();
 
-    if (currentDay == day) return;
-    return month >= currentMonth && month <= currentMonth + toMonth;
-  });
-  return filter;
-}
+//     if (currentDay === day) return;
+//     return month >= currentMonth && month <= currentMonth + toMonth;
+//   });
+//   return filter;
+// }
